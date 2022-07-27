@@ -1,0 +1,183 @@
+@import 'mixins';
+@import 'variables';
+@import 'placeholders';
+@import 'animations';
+
+
+*{
+    @extend %reset-css;
+}
+
+body{
+    height: 100vh;
+    @include flex(row,center);
+    background-color: $purple-light;
+    font-family: 'Sora', sans-serif;
+}
+
+div#todo{
+    width: 400px;
+    height: 470px;
+    div#todo__header{
+        
+        padding: 20px 30px;
+        color: $white;
+        background-color: $purple;
+        box-shadow: 0px 5px 16px 8px rgba(0,0,0,0.010);
+        border-radius: 5px;
+        @include flex(row,flex-start);
+        h1{
+            display: inline-block;
+            width: calc(100% - 20px);
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        button#menu-button{
+            background-color: transparent;
+            cursor: pointer;
+            color: $white;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        nav#menu{
+            visibility: hidden;
+            padding: 20px;
+            position: absolute;
+            margin-top: 70px;
+            margin-left: -120px;
+            background-color: $white;
+            border-radius: 10px;
+            box-shadow: 0px 5px 16px 8px rgba(0,0,0,0.030);
+            
+            ul{
+                list-style: none;
+                li{
+                    @include flex();
+                    color: $purple-400;
+                    font-size: 0.80rem;
+                    transition: color 0.2s ease-in-out;
+                    cursor: pointer;
+                    &:hover{
+                        color:$red;
+                    }
+
+                    span{
+                        margin-right: 5px;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        nav#menu.active{
+            visibility: visible;
+        }
+    }
+
+    div#todo__content{
+        margin-top: 20px;
+        padding: 40px 65px;
+        
+        height: 270px;
+        background-color: $white;
+        box-shadow: 0px 5px 16px 8px rgba(0,0,0,0.035);
+        border-radius: 5px;
+        @include flex(column,flex-start,flex-start);
+        ul{
+            list-style: none;
+            width: 100%;
+            height: calc(270px - 60px);
+            flex-grow: 1;
+            overflow-y: scroll;
+            li{
+                padding: 5px 10px;
+                margin-bottom: 5px;
+                @include flex();
+                gap: 20px;
+                font-size: 0.9rem;
+                color: $purple-300;
+                border-radius: 5px;
+                p{
+                    display: inline-block;
+                    flex-grow: 1;
+                }
+
+                p.active{
+                    color: $green;
+                    text-decoration: line-through;
+                    -webkit-animation: pulsate-bck 0.5s ease-in-out both;
+	                animation: pulsate-bck 0.5s ease-in-out both;
+                }
+
+                input[type="checkbox"] {
+                    visibility: hidden;
+                    accent-color: $purple-300;
+                    opacity: 0.8;
+                    cursor: pointer;
+                }
+
+                button{
+                    visibility: hidden;
+                    background-color: transparent;
+                    font-size: 16px;
+                    color: $purple-400;
+                    cursor: pointer;
+
+                    &:hover{
+                        color:$red;
+                    }
+                }
+
+                &:hover button, &:hover input{
+                    visibility: visible;
+                }
+                
+            }
+
+            &::-webkit-scrollbar{
+                width: 0px;
+            }
+        }  
+
+        input[type="text"]{
+            padding: 10px;
+            width: calc(100% - 20px);
+            outline: none;
+            border-bottom: 1px solid rgba($color: $purple-400, $alpha: 0.4);
+
+            &::placeholder{
+                color: rgba($color: $purple-300, $alpha: 0.7);
+            }
+        }
+    }
+
+    div#todo__footer{
+        margin-top: -20px;
+        @include flex(row, center);
+        button{
+            width: 180px;
+            padding: 15px 20px;
+            @include flex(row,center);
+            gap:10px;
+            background-color: $purple;
+            border-radius: 20px;
+            color: $white;
+            box-shadow: 0px 5px 16px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: filter .3s;
+            &:hover{
+                filter: brightness(0.9);
+            }
+            span:nth-child(1){
+                font-size: 16px;
+            }
+            span:nth-child(2){
+                
+                font-weight: 700;
+                font-size: 1.050rem;
+            }
+        }
+    }
+}

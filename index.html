@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO LIST</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,700,0,200" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pretty-checkbox/3.0.3/pretty-checkbox.min.css" integrity="sha512-kz4Ae66pquz4nVE5ytJyKfPDkQyHSggaDtT1v8oLfOd8bB+ZgZXNLaxex99MNu4fdCsWmi58mhLtfGk5RgfcOw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="script.js" defer></script>
+</head>
+<body>
+    <div id="todo">
+        <div id="todo__header">
+            <button type="button" id="menu-button" class="material-symbols-rounded">
+                    menu
+                   
+            </button>
+            <h1>Todo List</h1>
+            <nav id="menu">
+                <ul>
+                    <li><span class="material-symbols-rounded">delete</span> Remove all</li>
+                </ul>
+            </nav>
+        </div>
+        <div id="todo__content">
+            <ul id="todo__content__list"> 
+
+            </ul>
+            
+            <input type="text" id="input_task" placeholder="enter a new task..." required>
+        </div>
+        <div id="todo__footer">
+            <button><span  class="material-symbols-rounded">add</span> <span>New Task</span></button>
+        </div>
+    </div>
+    
+</body>
+
+</html>
